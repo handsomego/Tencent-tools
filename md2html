@@ -1,0 +1,74 @@
+#! /bin/sh
+n=1
+p=1
+Quan=(0)
+Directory=(0)
+Other=(0)
+function past {
+s=$2
+l=$3
+
+while [ $s -lt $l ];do
+	Other[n]="$s.ts"
+	echo ${Other[n]}
+	s=$(( s + 1 ))
+	n=$(( n  + 1 ))
+done
+}
+for file in $1/*;do
+
+Directory[n]=$file
+for New in ${Directory[n]};do
+m=$(( n -1 ))
+directory=${Directory[m]##/}
+oldfile=${New##/}
+newfile=${oldfile##/}
+if [ $directory = $newfile ];then
+Quan[n]=$((n + 1));
+
+fi
+done
+
+
+
+n=$(( n + 1))
+
+
+#break
+done
+echo ${#Quan[@]}
+while [ ${Directory[p]} ] && [[  ${Quan[p]}  -gt  $p  ]];do
+
+
+
+p=1
+while [ $p -lt ${#Directory[@]} ];do
+ for file in  ${Directory[p]}/*;do
+
+
+p=$((p + 1))
+while [   -d $file ];do
+	pastFile.sh  $( past $2 $3 )
+	
+#echo "<!DOCTYLPE html>\n<title>$file\n</title>\n<head>\n<body>"> ModuleHtml.html
+#cat $file | marked -s >> ModuleHtml.html
+#mv ModuleHteml.html  ${file%%/}
+#echo "</body>\n</html>"
+    
+break
+done
+cd $file
+
+break
+done
+done
+break
+done
+
+past $1 $2 $3
+#for i in "${Other[@]}";do
+#echo $i
+#done
+#for j in "${Directory[@]}";do
+#echo $j
+#done
