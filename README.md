@@ -22,3 +22,4 @@ chmod +x pastFile.sh
 ```
 Win操作系统装，有类似命令，只不过那个涉及CMD命令，而且本人只学了shell，所以移植到，win上
 可能会等很长时间。
+   
