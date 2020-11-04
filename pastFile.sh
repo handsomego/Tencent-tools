@@ -1,3 +1,4 @@
+#! /bin/bash
 function Comdig(){
 
 a=$(( m - 1 ))
